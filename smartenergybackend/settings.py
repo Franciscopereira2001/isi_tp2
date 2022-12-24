@@ -27,6 +27,8 @@ DEBUG = env("DEBUG", default=False)
 
 # Set this value from django-environ
 DATABASES = {"default": env.db()}
+DATABASES["default"]["PASSWORD"] = "admin"
+
 
 # Change database settings if using the Cloud SQL Auth Proxy
 if os.getenv("USE_CLOUD_SQL_AUTH_PROXY", None):
