@@ -10,6 +10,9 @@ class Device(models.Model):
     coordinatex = models.CharField(max_length=30)
     coordinatey = models.CharField(max_length=30)
     
+    def __str__(self):
+        return self.mac_address
+    
 class Log(models.Model):
     device = models.ForeignKey(Device, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
@@ -20,3 +23,6 @@ class Log(models.Model):
     valldrnew = models.IntegerField()
     valpir = models.IntegerField()
     statepir = models.IntegerField()
+    
+    def __str__(self):
+        return self.ip_address
