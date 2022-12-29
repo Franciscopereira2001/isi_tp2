@@ -5,10 +5,10 @@ from django.contrib.auth.models import User, Group
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
-        fields = ['url','name']
+        fields = ['pk','url','name']
 
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'is_staff', 'groups']
+        fields = ['pk','url', 'username', 'email', 'is_staff', 'groups']
