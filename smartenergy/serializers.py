@@ -16,7 +16,9 @@ class DeviceSerializer(serializers.HyperlinkedModelSerializer):
 class LogSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Log
-        fields = ['created', 
+        fields = [
+                  'device',
+                  'created', 
                   'ip_address', 
                   'valled', 
                   'stateled', 
@@ -25,3 +27,6 @@ class LogSerializer(serializers.HyperlinkedModelSerializer):
                   'valpir',
                   'statepir'
                   ]
+        
+    def create(self, validated_data):
+        return Log.objects.create(**validated_data)
