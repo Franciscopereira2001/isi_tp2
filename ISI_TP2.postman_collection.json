@@ -111,8 +111,23 @@
 		{
 			"name": "login",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
 					"raw": "{{url}}/api-auth/login",
 					"host": [
@@ -127,7 +142,7 @@
 			"response": []
 		},
 		{
-			"name": "login",
+			"name": "logout",
 			"request": {
 				"method": "POST",
 				"header": [],
