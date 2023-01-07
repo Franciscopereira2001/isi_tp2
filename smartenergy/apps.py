@@ -1,3 +1,6 @@
+## @package urls
+#  Ficherio automaticamente gerado.. Nao relevante
+# 
 from django.apps import AppConfig
 
 

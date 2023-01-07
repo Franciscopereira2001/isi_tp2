@@ -22,6 +22,9 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from .views import UserViewSet, GroupViewSet,LoginView, LogoutView
+
+# Importa o aplicacao smartenergy, que contem apenas o log e o device. O User e o Admin, ficam localizados na mesma pastas porque
+# sao do Django.
 from smartenergy.views import LogViewSet, DeviceViewSet 
 
 # Routers provide an easy way of automatically determining the URL conf.
