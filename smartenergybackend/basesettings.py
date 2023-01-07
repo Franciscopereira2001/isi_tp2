@@ -9,10 +9,14 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+## @package basesettings
+#  Ficheiro de configurações gerais comuns tanto a execuçao local como remota.
+#  do servidor.
+#  
 
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+#Variavel que armazena o diretorio onde este projecto esta correr
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -29,7 +33,8 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# Aplicacoes instaladas no Django:
+# Em baixo, colocamos a framework rest_framework do django e a aplicacao smartenergy onde estao localizados os webservices
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +46,7 @@ INSTALLED_APPS = [
     'smartenergy'
 ]
 
+#Nao fizemos nada. Por deifeito e gerado
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,8 +57,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Apresenta onde esta o ficheiro com os caminhos dos pedidos url
 ROOT_URLCONF = 'smartenergybackend.urls'
 
+# Gerado automatico
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -68,13 +76,16 @@ TEMPLATES = [
         },
     },
 ]
-
+# Gerado automatico
 WSGI_APPLICATION = 'smartenergybackend.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+#No caso de correr localmente, sera utilizado uma base de dados sqlite que é criada na raiz do projeto.
+# No caso de correr remotamente, esta configuracao e escrita por cima, pelo ficheiro settings.py, e utilizado o postgres
+# armazenado na google cloud
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -86,6 +97,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
+# Aplicacaos de autenticacao criado automaticamente
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -105,8 +117,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
+#variavel criada automaticamente para definir linguagem
 LANGUAGE_CODE = 'en-us'
 
+#variavel criada automaticamente para time zone
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -117,6 +131,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+#variavel criada automaticamente 
 STATIC_URL = 'static/'
 
 # Default primary key field type
@@ -125,6 +140,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+#Variavel para configurar o rest framework. No nosso caso, utitilizamos autenticacao orientada a sessao
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.

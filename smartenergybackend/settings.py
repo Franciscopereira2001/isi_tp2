@@ -7,6 +7,8 @@ import environ
 # Import the original settings from each template
 from .basesettings import *
 
+# Configuracao especifica do google cloud. Escreve por cima do base settings. 
+# Seguimos o tutorial de integracao google cloud com django.
 try:
     # Load the settings from the environment variable
     env = environ.Env()
@@ -47,5 +49,7 @@ try:
     STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
     GS_DEFAULT_ACL = "publicRead"
 except:
+    # No caso de haver excepcao, significa que nao existem variaveis de ambiente (so presentes no google cloud)
+    # e lanca o servidor localmente.
     print("RUNNING LOCALLY")
     pass
