@@ -13,7 +13,7 @@ class DeviceSerializer(serializers.HyperlinkedModelSerializer):
         # Ligacao ao modelo Device da base dados
         model = Device
         # Mapeia os seguintes campos da tabela Device
-        fields = ['created','mac_address', 'coordinatex' , 'coordinatey','group']
+        fields = ['pk','created','mac_address', 'coordinatex' , 'coordinatey','group']
         
     # Usado para criar um novo device, em que valida posteriormente
     def create(self, validated_data):
@@ -27,6 +27,7 @@ class LogSerializer(serializers.HyperlinkedModelSerializer):
         model = Log
         # Mapeia os seguintes campos da tabela Log
         fields = [
+                  'pk',
                   'device',
                   'created', 
                   'ip_address', 
